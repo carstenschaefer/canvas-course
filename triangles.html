@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drawing Canvas Triangles</title>
+</head>
+
+<body onload="drawTriangle()">
+	<canvas id="exampleCircle" width="300" height="250"></canvas>
+
+<script>
+
+	function drawTriangle(){
+
+		var canvas = document.getElementById("exampleCircle");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+			context.strokeStyle = "red"; //color of the line
+			context.moveTo(100,100); //start of line one
+			context.lineTo(300,100); //end of line one
+			context.lineTo(200,200); //end of line two
+			context.closePath(); //connects end to start
+			context.stroke(); //triangle's outline
+
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

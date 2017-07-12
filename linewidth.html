@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Line Width Property</title>
+</head>
+
+<body onload="drawLineWidth()">
+	<canvas id="exampleLinesWidth" width="250" height="250"></canvas>
+
+<script>
+
+	function drawLineWidth(){
+
+		var canvas = document.getElementById("exampleLinesWidth");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+            for(i=1;i<10;i++){
+
+            	context.lineWidth = i;
+            	context.beginPath();
+            	context.moveTo(20 + i * 10, 10);
+            	context.lineTo(20 + i * 10, 200);
+            	context.stroke();
+            }
+			
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

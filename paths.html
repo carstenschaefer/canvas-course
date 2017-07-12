@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drawing Paths</title>
+</head>
+
+<body onload="drawPath()">
+	<canvas id="examplePath"></canvas>
+
+<script>
+
+	function drawPath(){
+
+		var canvas = document.getElementById("examplePath");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.fillStyle = 'yellow';
+		context.beginPath();
+		context.moveTo(10,30);
+		context.bezierCurveTo(50,90,159,-30,200,30);
+		context.lineTo(200,90);
+		context.lineTo(10,90);
+		context.closePath();
+		context.fill();
+		context.lineWidth = 4;
+		context.strokeStyle = 'red';
+		context.stroke();    
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

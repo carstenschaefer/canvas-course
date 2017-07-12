@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drawing Custom Shapes</title>
+</head>
+
+<body onload="drawShape()">
+	<canvas id="exampleShape" width="250" height="250" style="border:2px solid black"></canvas>
+
+<script>
+
+	function drawShape(){
+
+		var canvas = document.getElementById("exampleShape");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+            context.beginPath();
+            context.lineWidth = 3;
+            context.moveTo(50,50);
+            context.lineTo(150,100);
+            context.lineTo(185,160);
+            context.lineTo(30,185);
+            context.closePath();
+            context.stroke();
+
+			
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

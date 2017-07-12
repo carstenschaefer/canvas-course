@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Line Cap</title>
+</head>
+
+<body onload="drawLineCap()">
+	<canvas id="exampleLinesCap" width="350" height="450"></canvas>
+
+<script>
+
+	function drawLineCap(){
+
+		var canvas = document.getElementById("exampleLinesCap");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+	      // butt line cap 
+	      context.beginPath();
+	      context.moveTo(20,20);
+	      context.lineTo(20,250);
+	      context.lineWidth = 30;
+	      context.strokeStyle = 'red';
+	      context.lineCap = 'butt';
+	      context.stroke();
+
+	  	  // round line cap 
+	      context.beginPath();
+	      context.moveTo(80,20);
+	      context.lineTo(80,250);
+	      context.lineWidth = 30;
+	      context.strokeStyle = 'green';
+	      context.lineCap = 'round';
+	      context.stroke();
+
+	      // square line cap 
+	      context.beginPath();
+	      context.moveTo(150,20);
+	      context.lineTo(150,250);
+	      context.lineWidth = 30;
+	      context.strokeStyle = 'yellow';
+	      context.lineCap = 'square';
+		  context.stroke();
+
+
+
+			
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

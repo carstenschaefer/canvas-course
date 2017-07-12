@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drawing Canvas Rectangles</title>
+</head>
+
+<body onload="drawRect()">
+	<canvas id="exampleRect"></canvas>
+
+<script>
+	function drawRect(){
+
+		//Grab the Canvas element using the DOM
+		var canvas = document.getElementById("exampleRect");
+
+		//Check for Browser Canvas compatibility
+
+		if(canvas.getContext){
+
+			//Use getContext to identify the rendering context
+
+			var context = canvas.getContext('2d');
+
+			//Create the rectangle
+
+			context.fillRect(50,50,150,250);
+            context.clearRect(75,75,100,50);
+            context.strokeRect(90,90,75,20);
+
+
+		}else{
+			//provide a fallback option
+
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+</script>
+
+</body>
+</html>
+

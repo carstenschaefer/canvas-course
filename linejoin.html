@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Line Join</title>
+</head>
+
+<body onload="drawLineJoin()">
+	<canvas id="exampleLineJoin" width="350" height="450"></canvas>
+
+<script>
+
+	function drawLineJoin(){
+
+		var canvas = document.getElementById("exampleLineJoin");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+		 
+		   context.lineWidth = 20;
+		   context.beginPath();
+
+	    //set the bevel corner
+		   context.lineJoin = "bevel";
+		   context.moveTo(50, 20);
+		   context.lineTo(150, 20);
+		   context.lineTo(150, 120);
+		   context.stroke();
+
+		// set the round corner             
+		   context.beginPath();
+		   context.lineJoin = "round";
+		   context.moveTo(50, 140);
+		   context.lineTo(150, 140);
+		   context.lineTo(150, 260);
+		   context.stroke();
+
+		// set the miter  
+		   context.beginPath();
+		   context.lineJoin = "miter";
+		   context.moveTo(50, 280);
+		   context.lineTo(150, 280);
+		   context.lineTo(150, 400); 
+		   context.stroke();
+
+
+			
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

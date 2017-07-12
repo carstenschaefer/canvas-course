@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drawing Canvas Circles</title>
+</head>
+
+<body onload="drawCircle()">
+	<canvas id="exampleCircle" width="300" height="250" style="border:3px solid black"></canvas>
+
+<script>
+
+	function drawCircle(){
+
+		var canvas = document.getElementById("exampleCircle");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		var startPoint = (Math.PI/180) * 0;
+		var endPoint   = (Math.PI/180) * 360;
+
+		context.beginPath();
+		context.arc(125,125, 75, startPoint, endPoint, true);
+
+		context.stroke();
+
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

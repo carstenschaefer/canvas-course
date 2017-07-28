@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Using Mouse or Touch Events for Drawing Paths </title>
+</head>
+
+<body onload="drawPath()">
+
+	<canvas id="mouseEvents" width="350" height="200" style="border: 2px solid black"></canvas>
+
+<script>
+
+	function drawPath(){
+
+		
+		//Request regular intervals for drawing paths
+
+		window.requestAnimFrame = (function (callback) {
+		return window.requestAnimationFrame || 
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimaitonFrame ||
+					function (callback) {
+					 	window.setTimeout(callback, 1000/60);
+					};
+				})();
+
+
+		var canvas = document.getElementById("mouseEvents");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+			context.strokeStyle = "red";
+			context.lineWidth = 1.5;
+
+		//Setting up mouse events for drawing paths
+
+			var drawing = false;
+			var mousePosition = {x:0, y:0};
+			var lastPosition = mousePosition;
+
+			canvas.addEventListener("mousedown", function (e){
+				drawing = true;
+				lastPosition = getMousePosition(canvas, e);
+			}, false);
+
+			canvas.addEventListener("mouseup", function (e){
+				drawing = false;
+
+			}, false);
+
+			canvas.addEventListener("mousemove", function (e){
+				mousePosition = getMousePosition(canvas, e);
+
+			}, false);
+
+
+		//Setting up touch events for mobile devices
+
+			canvas.addEventListener("touchstart", function (e){
+
+				mousePosition = getTouchPosition(canvas, e);
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent("mousedown", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				canvas.dispatchEvent(mouseEvent);
+
+			}, false);
+
+
+			canvas.addEventListener("touchend", function (e) {
+
+				var mouseEvent = new MouseEvent("mouseup", {});
+				canvas.dispatchEvent(mouseEvent);
+
+				}, false);
+				
+			canvas.addEventListener("touchmove", function (e) {
+				
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent("mousemove", {
+				clientX: touch.clientX,
+				clientY: touch.clientY
+				});
+
+				canvas.dispatchEvent(mouseEvent);
+
+				}, false);
+
+
+		// Preventing automatic scrolling when touching the canvas
+
+			document.body.addEventListener("touchstart", function (e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+
+			document.body.addEventListener("touchend", function (e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+
+			document.body.addEventListener("touchmove", function (e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+
+
+		//A function to return the mouse position relative to the Canvas
+
+		function getMousePosition(canvasArea, mouseEvent){
+			var rect = canvasArea.getBoundingClientRect();
+			return {
+				x: mouseEvent.clientX - rect.left,
+				y: mouseEvent.clientY - rect.top
+			};
+
+
+		}
+		
+		//A function to return the touch position relative to the Canvas
+
+		function getTouchPosition(canvasArea, touchEvent){
+			var rect = canvasArea.getBoundingClientRect();
+			return {
+				x: touchEvent.touches[0].clientX - rect.left,
+				y: touchEvent.touches[0].clientY - rect.top
+			};
+
+
+		}
+
+
+		//Enabling drawing to the Canvas
+
+		function canvasPath(){
+			if(drawing){
+				context.moveTo(lastPosition.x, lastPosition.y);
+				context.lineTo(mousePosition.x, mousePosition.y);
+				context.stroke();
+				lastPosition = mousePosition;
+			}
+		}
+
+		//Enable animation
+
+		(function drawingPath () {
+		requestAnimFrame(drawingPath);
+		canvasPath();
+		})();
+
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

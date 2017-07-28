@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pattern Example</title>
+</head>
+
+<body onload="drawPattern()">
+	<canvas id="pattern" width="650" height="450" ></canvas>
+
+<script>
+
+	function drawPattern(){
+
+		var canvas = document.getElementById("pattern");
+
+		var context = canvas.getContext('2d');
+		
+		if(canvas.getContext){
+
+		//Create the image to be used as the pattern
+		  var img = new Image();
+		  img.src = 'https://cdn.pixabay.com/photo/2014/04/03/10/41/light-311119__340.png';
+		  img.onload = function() {
+
+		//Create the pattern to fill the rectangle
+
+		    var pattern = context.createPattern(img, 'repeat-x');
+		    context.fillStyle = pattern;
+		    context.fillRect(0, 0, 650, 650);
+		}
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
+

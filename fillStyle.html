@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drawing Canvas House</title>
+</head>
+
+<body onload="drawHouse()">
+	<canvas id="exampleHouse" width="450" height="250" style="border:2px solid black"></canvas>
+
+<script>
+
+	function drawHouse(){
+
+		var canvas = document.getElementById("exampleHouse");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+            
+		//Drawing the roof
+		context.beginPath();
+		context.moveTo(100, 25);
+            context.lineWidth = 1.5;
+            context.lineTo(350, 25);
+            context.lineTo(385, 100);
+            context.lineTo(150, 100);
+            context.fillStyle= 'red';//adding color
+            context.closePath();
+            context.fill();
+
+ 		//Drawing the house's front
+            context.moveTo(100, 25);
+            context.lineTo(20, 100)
+            context.moveTo(20, 100);
+            context.lineTo(20, 200);
+            context.lineTo(150, 200);
+            context.fillStyle= 'blue'; //adding color
+            context.stroke();
+           
+ 
+            //Drawing the house's rear
+            context.moveTo(150, 100);
+            context.lineTo(150, 200);
+            context.lineTo(385, 190);
+            context.lineTo(385, 100);
+            context.closePath();
+            context.stroke();
+            context.closePath();
+
+            //drawing the door 
+            context.fillRect(55, 125, 60, 75);
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
+

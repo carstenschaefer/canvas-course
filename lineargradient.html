@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Linear Gradient Example</title>
+</head>
+
+<body onload="linGrad()">
+	<canvas id="linGradient" width="450" height="250" ></canvas>
+
+<script>
+
+	function linGrad(){
+
+		var canvas = document.getElementById("linGradient");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+           //Create the gradient
+
+            var linearGradient = context.createLinearGradient(0, 0, 200, 0);
+				linearGradient.addColorStop(0, "blue");
+				linearGradient.addColorStop(0.5, "white");
+				linearGradient.addColorStop(1, "red");
+
+			//Fill the gradient
+				
+				context.fillStyle = linearGradient;
+				context.fillRect(20, 20, 150, 100);
+		
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
+

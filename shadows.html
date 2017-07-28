@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shadow Example</title>
+</head>
+
+<body onload="drawShadow()">
+	<canvas id="shadow" width="450" height="350" ></canvas>
+
+<script>
+
+	function drawShadow(){
+
+		var canvas = document.getElementById("shadow");
+
+		var context = canvas.getContext('2d');
+		
+		if(canvas.getContext){
+
+		context.shadowColor = "green";
+		context.shadowBlur = 7;
+		context.shadowOffsetX = 10;
+		context.shadowOffsetY = 10;
+		context.shadowColor = "yellow";
+
+		context.strokeRect(25, 25, 150, 150);
+		context.shadowColor = "green";
+
+		context.strokeRect(50, 50, 150, 150);
+		context.shadowColor = "red";
+
+		context.strokeRect(75, 75, 150, 150);		
+				
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
+

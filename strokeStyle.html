@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stroke Style Example</title>
+</head>
+
+<body onload="drawRect()">
+	<canvas id="strokeStyle" width="450" height="250" ></canvas>
+
+<script>
+
+	function drawRect(){
+
+		var canvas = document.getElementById("strokeStyle");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+            context.strokeStyle="rgb(0,0,255)";
+            context.strokeRect(20,20,150,100);
+		
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
+

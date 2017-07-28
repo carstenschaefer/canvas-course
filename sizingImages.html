@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sizing images</title>
+</head>
+
+<body onload="sizeExample()">
+	<canvas id="exampleSizing" width="150" height="150" style="border:2px solid black">	
+	</canvas>
+
+<script>
+
+	function sizeExample(){
+
+		var canvas = document.getElementById("exampleSizing");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		var img = new Image();
+
+		img.onload = function () {
+
+		context.drawImage(img,20,20,100,100);
+
+		}
+
+		img.src = 'https://cdn.pixabay.com/photo/2017/07/03/20/17/abstract-2468874__340.jpg';
+		
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

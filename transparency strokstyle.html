@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Transparency Example</title>
+</head>
+
+<body onload="transPa()">
+	<canvas id="trans" width="450" height="250" ></canvas>
+
+<script>
+
+	function transPa(){
+
+		var canvas = document.getElementById("trans");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+			context.fillStyle = 'rgba(255, 0, 0, 0.2)';
+			context.fillRect(20, 20, 175, 150); 
+	
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
+

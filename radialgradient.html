@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Radial Gradient Example</title>
+</head>
+
+<body onload="radGrad()">
+	<canvas id="radGradient" width="450" height="250" ></canvas>
+
+<script>
+
+	function radGrad(){
+
+		var canvas = document.getElementById("radGradient");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+         // Create gradients
+		 		  
+		  var radGradOne = context.createRadialGradient(105, 105, 20, 112, 120, 50);
+		  radGradOne.addColorStop(0, '#AA4F00');
+		  radGradOne.addColorStop(0.75, '#AF0288');
+		  radGradOne.addColorStop(1, 'rgba(255,1,136,0)');
+
+		  var radGradTwo = context.createRadialGradient(95, 15, 15, 102, 20, 40);
+		  radGradTwo.addColorStop(0, '#E0A9FF');
+		  radGradTwo.addColorStop(0.8, '#E0B7E2');
+		  radGradTwo.addColorStop(1, 'rgba(0,201,255,0)');
+
+		  var radGradThree = context.createRadialGradient(0, 150, 50, 0, 140, 90);
+		  radGradThree.addColorStop(0, '#B4F601');
+		  radGradThree.addColorStop(0.8, '#B4C200');
+		  radGradThree.addColorStop(1, 'rgba(228,199,0,0)');
+		  
+		  // Draw shapes
+		  context.fillStyle = radGradThree;
+		  context.fillRect(0, 0, 150, 150);
+		  context.fillStyle = radGradTwo;
+		  context.fillRect(0, 0, 150, 150);
+		  context.fillStyle = radGradOne;
+		  context.fillRect(0, 0, 150, 150);
+		 
+	
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
+

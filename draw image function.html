@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Draw Image Function</title>
+</head>
+
+<body onload="drawExample()">
+	<canvas id="exampleDrawing" width="350" height="450"></canvas>
+
+<script>
+
+	function drawExample(){
+
+		var canvas = document.getElementById("exampleDrawing");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		var img = document.createElement('img');
+
+		img.src = 'https://cdn.pixabay.com/photo/2017/07/03/20/17/abstract-2468874__340.jpg';
+
+		img.onload = function () {
+
+		context.drawImage(img,50,50);
+
+		}     
+			
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>setTransform Example</title>
+</head>
+
+<body onload="transformShape()">
+	<canvas id="exampleTransform" width="350" height="250">	
+	</canvas>
+
+<script>
+
+	function transformShape(){
+
+		var canvas = document.getElementById("exampleTransform");
+
+		if(canvas.getContext){
+
+			var context = canvas.getContext('2d');
+
+			context.setTransform(1, 1, 0, 1, 0, 0);
+
+			context.font='32px Arial';
+
+			context.fillText('Canvas!', 50,75);   
+
+			}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+</script>
+</body>
+</html>
+

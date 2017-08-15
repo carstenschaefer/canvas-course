@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scaling Example</title>
+</head>
+
+<body onload="scaleShape()">
+	<canvas id="exampleScale" width="650" height="350">	
+	</canvas>
+
+<script>
+
+	function scaleShape(){
+
+		var canvas = document.getElementById("exampleScale");
+
+		if(canvas.getContext){
+
+			var context = canvas.getContext('2d');
+
+              context.strokeRect(20,20,100,100);//Drawing a rectangle without scaling
+
+               context.scale(2,2); //Scaling the size of the rectangle
+               context.strokeRect(20,20,100,100);
+                                        
+               context.scale(-.5, 1); //Providing negative scaling values
+               context.font = "bold 50px Helvetica";
+               context.fillStyle = "red";
+               context.fillText("Canvas", -450, 100);
+				
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+</script>
+</body>
+</html>
+

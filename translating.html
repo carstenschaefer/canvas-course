@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Translating Example</title>
+</head>
+
+<body onload="translateShape()">
+	<canvas id="exampleTranslate" width="650" height="350">	
+	</canvas>
+
+<script>
+
+	function translateShape(){
+
+		var canvas = document.getElementById("exampleTranslate");
+
+		if(canvas.getContext){
+
+			var context = canvas.getContext('2d');
+
+			context.fillRect(20,20,120,80);
+			context.translate(100,100);
+			context.fillRect(20,20,120,80);         
+
+				
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>An Quadratic Curve Example</title>
+</head>
+
+<body onload="drawQuad()">
+	<canvas id="exampleQuad" width="350" height="200">	
+	</canvas>
+
+<script>
+
+	function drawQuad(){
+
+		var canvas = document.getElementById("exampleQuad");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.beginPath();
+
+		context.moveTo(30,20);
+
+		context.quadraticCurveTo(220, 50, 70, 100); //Create curve
+
+		context.stroke();
+
+		context.fillStyle = 'orange'; //Beginning point
+		
+		context.fillRect(30, 20, 15, 10); //Closing point
+		
+		context.fillRect(60, 100, 15, 10);
+
+		context.fillStyle = 'green';  //Control point
+		
+		context.fillRect(200, 30, 10, 10);  
+				
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TextBaseline Example</title>
+</head>
+
+<body onload="useText()">
+	<canvas id="exampleTextBaseline" width="550" height="220" style="border: 2px solid black">	
+	</canvas>
+
+<script>
+
+	function useText(){
+
+		var canvas = document.getElementById("exampleTextBaseline");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		//drawing a line at position y=200
+
+		context.strokeStyle = "red";
+		context.lineWidth  = 2;
+		context.beginPath();
+		context.moveTo(0,100);
+		context.lineTo(600, 100);
+		context.stroke();
+		
+
+		context.font      = "20px Arial";
+		
+		
+		//Illustrating different varieties of textBaseline
+
+		context.textBaseline = "top";
+		context.fillText("top", 20, 100);
+
+		context.textBaseline = "hanging";
+		context.fillText("hanging", 60, 100);
+
+		context.textBaseline = "middle";
+		context.fillText("middle", 140, 100);
+
+		context.textBaseline = "alphabetic";
+		context.fillText("alphabetic", 210, 100);
+
+		context.textBaseline = "ideographic";
+		context.fillText("ideographic", 310, 100);
+
+		context.textBaseline = "bottom";
+		context.fillText("bottom", 430, 100);
+		
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

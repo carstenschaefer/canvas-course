@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shadow Settings Example</title>
+</head>
+
+<body onload="shadowSetting()">
+	<canvas id="exampleShadow" width="650" height="100" style="border: 2px solid black">	
+	</canvas>
+
+<script>
+
+	function shadowSetting(){
+
+		var canvas = document.getElementById("exampleShadow");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.font = "40px Arial";
+
+		// set the shadow color to red
+
+  		context.shadowColor = "red";
+
+  		// set text with horizontal shadow offset 50 or 50 pixels to the right
+
+		context.shadowOffsetX = 50;
+		context.fillText ("Canvas", 10, 50);
+
+		// set text with vertical shadow offset -10 or 10 pixels upwards
+
+		context.shadowOffsetY = -10;
+		context.fillText ("Canvas", 220, 50);
+
+		 // set the blurring effect
+
+		context.shadowBlur = 5;
+		context.fillText ("Canvas", 450, 50);		
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+</script>
+</body>
+</html>
+

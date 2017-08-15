@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Max Width Example</title>
+</head>
+
+<body onload="maxWidth()">
+	<canvas id="exampleWidth" width="650" height="200">	
+	</canvas>
+
+<script>
+
+	function maxWidth(){
+
+		var canvas = document.getElementById("exampleWidth");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.font      = "40px Verdana";
+		context.fillStyle = "red";
+
+		//text without defining maxWidth
+
+		context.fillText("Learning Canvas is fun", 50, 50);
+
+		//text with defined maxWidth
+
+		context.fillText("Learning Canvas is fun", 50, 100, 200);
+		
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+</script>
+</body>
+</html>
+

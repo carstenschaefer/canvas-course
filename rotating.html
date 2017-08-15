@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rotating Example</title>
+</head>
+
+<body onload="rotateShape()">
+	<canvas id="exampleRotate" width="650" height="350">	
+	</canvas>
+
+<script>
+
+	function rotateShape(){
+
+		var canvas = document.getElementById("exampleRotate");
+
+		if(canvas.getContext){
+
+			var context = canvas.getContext('2d');
+
+			context.rotate(45 * Math.PI / 180);//Rotate
+			 
+			context.font = "bold 32px Helvetica";
+			context.fillStyle = "blue";
+			context.fillText("Canvas!", 150, 0);              
+
+				
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Animation Example</title>
+</head>
+
+<body onload="drawVelo()">
+	<canvas id="exampleVelocity" width="450" height="300" style="border: 3px solid black">	
+	</canvas>
+
+<script>
+ 
+function drawVelo() {
+  
+var canvas = document.getElementById("exampleVelocity");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		var move;
+
+		var movingBall = {
+		  x: 70,
+		  y: 70,
+		  velX: 7,
+		  velY: 3,
+		  radius: 35,
+		  color: 'red',
+		  drawBall: function() {
+		    context.beginPath();
+		    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);//Drawing the ball
+		    context.closePath();
+		    context.fillStyle = this.color;
+		    context.fill();
+		  }
+		};
+
+		//Adding velocity
+		function drawBall() {
+
+		  //Adding trailing effect
+		  
+		  context.fillStyle = 'rgba(255, 255, 255, 0.3)';
+          context.fillRect(0, 0, canvas.width, canvas.height);		  
+
+		  movingBall.drawBall();
+		  movingBall.x += movingBall.velX;
+		  movingBall.y += movingBall.velY;
+
+		 //Adding boundary
+
+		  if (movingBall.y + movingBall.velY > canvas.height ||
+          movingBall.y + movingBall.velY < 0) {
+          movingBall.velY = -movingBall.velY;
+
+          }
+
+          if (movingBall.x + movingBall.velX > canvas.width ||
+          movingBall.x + movingBall.velX < 0) {
+          movingBall.velX = -movingBall.velX;
+
+          }
+
+		  move = window.requestAnimationFrame(drawBall);
+
+		}
+
+		//Adding event listeners
+
+		canvas.addEventListener('mouseover', function(e) {
+		  move = window.requestAnimationFrame(drawBall);
+
+		});
+
+		canvas.addEventListener('mouseout', function(e) {
+		  window.cancelAnimationFrame(move);
+
+		});
+
+		movingBall.drawBall();			
+
+}else{
+	alert('Please Use a Browser that Supports Canvas');
+	}
+}
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>StrokeText Example</title>
+</head>
+
+<body onload="useText()">
+	<canvas id="exampleStrokeText" width="350" height="100" style="border:2px solid black">	
+	</canvas>
+
+<script>
+
+	function useText(){
+
+		var canvas = document.getElementById("exampleStrokeText");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.font = "30px Arial";
+		
+		context.strokeText("Learning Canvas is Fun",10,50);
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

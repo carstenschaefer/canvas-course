@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A Bezier Curve Example</title>
+</head>
+
+<body onload="drawBez()">
+	<canvas id="exampleBez" width="450" height="300">	
+	</canvas>
+
+<script>
+
+	function drawBez(){
+
+		var canvas = document.getElementById("exampleBez");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.beginPath();
+
+		context.moveTo(50,20);
+
+		context.bezierCurveTo(250, 30, 150, 60, 50, 120);//Create Bezier curve
+
+		context.stroke();
+
+		context.fillStyle = 'orange'; //Color of the first point
+		
+		context.fillRect(50, 20, 10, 10); //Starting point
+		
+		context.fillRect(50, 120, 10, 10); //Closing point
+
+		context.fillStyle = 'green'; //Color of control point
+		
+		context.fillRect(200, 30, 10, 10);//First control point
+		
+		context.fillRect(165, 60, 10, 10); //Second control point
+				
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+</script>
+</body>
+</html>
+

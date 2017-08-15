@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Animation Example</title>
+</head>
+
+<body onload="drawAnimate()">
+	<canvas id="exampleAnimation" width="800" height="350">	
+	</canvas>
+
+<script>
+
+var sky = new Image();
+var bird = new Image();
+
+  sky.src = 'https://cdn.pixabay.com/photo/2012/10/24/04/48/sky-62732__340.jpg';
+  bird.src = 'https://cdn.pixabay.com/photo/2014/11/28/09/33/bird-548654__340.png';
+
+  window.requestAnimationFrame(drawAnimate);
+
+function drawAnimate() {
+  
+var canvas = document.getElementById("exampleAnimation");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+
+		  context.globalCompositeOperation = 'destination-over';//Set how the new image is drawn onto the destination image.
+		  
+		  context.clearRect(0, 0, 450, 750); // Clear canvas
+
+		  context.strokeStyle = 'red';
+		  context.save();
+
+		  context.translate(150, 150);
+
+		  // Draw bird
+		  var time = new Date();
+		  context.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+		  context.translate(105, 0);
+		 
+		  context.drawImage(bird, -12, -12, 75, 75);
+
+		  context.restore();
+		  
+		  context.beginPath();
+		  context.arc(150, 150, 105, 0, Math.PI * 2, false); // Draw a circle
+		  context.stroke();
+		 
+		  context.drawImage(sky, 0, 0, 450, 750);
+
+		  window.requestAnimationFrame(drawAnimate);
+
+}else{
+	alert('Please Use a Browser that Supports Canvas');
+	}
+}
+
+</script>
+</body>
+</html>
+

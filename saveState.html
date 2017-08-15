@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Saving and Restoring States Example</title>
+</head>
+
+<body onload="saveState()">
+	<canvas id="exampleState" width="650" height="350">	
+	</canvas>
+
+<script>
+
+	function saveState(){
+
+		var canvas = document.getElementById("exampleState");
+
+		if(canvas.getContext){
+
+			   var context = canvas.getContext('2d');
+
+               context.fillRect(0,50,100,150); //Create a rectangle with default settings
+               
+               context.save(); //Save the default state
+               
+               context.fillStyle = 'red'; //Change the settings
+
+               context.fillRect( 120,50,100,150); 
+               
+               context.save(); //Save the present state
+               
+               context.fillStyle = 'blue'; //Make new changes to the settings
+
+               context.globalAlpha = 0.5; //Set the global alpha of the canvas 
+
+               context.fillRect(230,50,100,150);
+               
+               context.restore(); //Reinstate the previous state
+               
+               context.fillRect(350,50,100,150); //Create a rectangle with reinstated settings  
+               
+               context.restore(); //Reinstate original state
+               
+               context.fillRect(470,50,100,150); //Create a rectangle with reinstated settings	
+				
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+</script>
+</body>
+</html>
+

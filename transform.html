@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Transform Example</title>
+</head>
+
+<body onload="transformShape()">
+	<canvas id="exampleTransform" width="350" height="250">	
+	</canvas>
+
+<script>
+
+	function transformShape(){
+
+		var canvas = document.getElementById("exampleTransform");
+
+		if(canvas.getContext){
+
+			var context = canvas.getContext('2d');
+
+			context.strokeStyle = 'red';
+
+			context.font = '50px Arial';
+
+			context.strokeText ('Canvas!', 50, 100);//First text without transformation
+
+			context.transform (0.5, 0.4, -0.2, 1.2, 200, 0); //Set the transformation
+			
+			context.strokeText ('Canvas!', 50, 100);	//Second text with transformation      
+
+			}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+</script>
+</body>
+</html>
+

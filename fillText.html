@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FillText Example</title>
+</head>
+
+<body onload="useText()">
+	<canvas id="exampleFillText" width="350" height="100" style="border:2px solid black">	
+	</canvas>
+
+<script>
+
+	function useText(){
+
+		var canvas = document.getElementById("exampleFillText");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.font = "30px Arial";
+		context.fillText("Learning Canvas is Fun",10,50);
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+
+	}
+
+
+</script>
+
+</body>
+</html>
+

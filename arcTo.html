@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>An arcTo Function Example</title>
+</head>
+
+<body onload="drawArc()">
+	<canvas id="exampleArc" width="350" height="200">	
+	</canvas>
+
+<script>
+
+	function drawArc(){
+
+		var canvas = document.getElementById("exampleArc");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		context.beginPath();
+		context.moveTo(50,50);           // Create a starting point
+		context.lineTo(100,50);          // Create a horizontal line
+		context.arcTo(150,50,150,70,50); // Create an arc
+		context.lineTo(150,170);         // Proceed with a vertical line
+		context.stroke();                // Draw it on the Canvas
+		
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+	}
+
+</script>
+</body>
+</html>
+

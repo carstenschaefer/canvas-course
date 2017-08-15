@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TextAlign Example</title>
+</head>
+
+<body onload="useText()">
+	<canvas id="exampleTextAlign" width="450" height="150">	
+	</canvas>
+
+<script>
+
+	function useText(){
+
+		var canvas = document.getElementById("exampleTextAlign");
+
+		if(canvas.getContext){
+
+		var context = canvas.getContext('2d');
+
+		//drawing a line at position 200
+
+		context.lineWidth  = 2;
+		context.beginPath();
+		context.moveTo(200, 0);
+		context.lineTo(200, 200);
+		context.stroke();
+		context.closePath();
+
+		context.font      = "30px Arial";
+		
+		//Illustrating different varieties of textAlign
+
+		context.fillStyle = "blue";
+		context.textAlign = "center";
+		context.fillText("center", 200, 30);
+
+		context.fillStyle = "red";
+		context.textAlign = "start";
+		context.fillText("start", 200, 60);
+
+		context.fillStyle = "green";
+		context.textAlign = "end";
+		context.fillText("end", 200, 80);
+
+		context.fillStyle = "purple";
+		context.textAlign = "left";
+		context.fillText("left", 200, 100);
+
+		context.fillStyle = "black";
+		context.textAlign = "right";
+		context.fillText("right", 200, 120);
+		
+
+		}else{
+			alert('Please Use a Browser that Supports Canvas');
+		}
+
+
+	}
+
+
+</script>
+
+</body>
+</html>
+
